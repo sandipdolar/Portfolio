@@ -232,7 +232,7 @@ export default function Portfolio() {
       setStatus("sending");
 
       const response = await axios.post(
-        "https://portfolio-backend-2kq3.onrender.com/api/contact",
+        `${import.meta.env.VITE_API_URL}/api/contact`,
         form,
       );
 
