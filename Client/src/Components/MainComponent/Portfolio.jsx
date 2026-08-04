@@ -232,7 +232,7 @@ export default function Portfolio() {
       setStatus("sending");
 
       const response = await axios.post(
-        "https://sandipdolar.vercel.app/api/contact",
+        "https://portfolio-backend-2kq3.onrender.com/api/contact",
         form,
       );
 
