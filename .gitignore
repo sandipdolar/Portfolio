@@ -1,0 +1,11 @@
+# Client
+Client/node_modules
+Client/dist
+
+# Server
+Server/node_modules
+Server/.env
+
+# OS / Editor
+.vscode
+.DS_Store
