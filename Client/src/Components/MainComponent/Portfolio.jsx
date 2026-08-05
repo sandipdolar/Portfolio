@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactSchema } from "../../validation/ContactSchema";
 import {
   Menu,
   X,
@@ -192,10 +195,25 @@ function SkillBar({ name, level }) {
 /* ----------------------------------------------------------------------- */
 
 export default function Portfolio() {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [serverError, setServerError] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
   // Highlight the active nav tab as the user scrolls
   useEffect(() => {
@@ -219,43 +237,30 @@ export default function Portfolio() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!form.name || !form.email || !form.message) return;
-
+  const onSubmit = async (data) => {
     try {
+      setServerError("");
       setStatus("sending");
 
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/contact`,
-        form,
+        data,
       );
 
       if (response.data.success) {
         setStatus("sent");
 
-        setForm({
-          name: "",
-          email: "",
-          message: "",
-        });
+        reset();
 
-        // Optional: change button back after 3 seconds
         setTimeout(() => {
-          setStatus("");
+          setStatus("idle");
         }, 3000);
       }
     } catch (error) {
-      console.error(error);
+      setServerError(error.response?.data?.message || "Something went wrong.");
 
-      alert("Something went wrong!");
-
-      setStatus("");
+      setStatus("idle");
     }
   };
 
@@ -794,7 +799,7 @@ export default function Portfolio() {
             {/* Form column */}
             <Reveal className="md:col-span-3" delay={160}>
               <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit(onSubmit)}
                 className="rounded-xl border border-slate-200 p-7 space-y-5"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -805,26 +810,32 @@ export default function Portfolio() {
                     <input
                       type="text"
                       name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
+                      {...register("name")}
                       placeholder="Your name"
-                      className="w-full rounded-lg border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
+                      className={`w-full rounded-lg border ${errors.name ? "border-red-500 focus:ring-red-200" : "border-slate-200  focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"} px-3.5 py-2.5 text-sm outline-none  transition-all`}
                     />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {errors.name.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1.5">
                       Email
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
+                      {...register("email")}
                       placeholder="you@example.com"
-                      className="w-full rounded-lg border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
+                      className={`w-full rounded-lg border ${errors.email ? "border-red-500 focus:ring-red-200" : "border-slate-200  focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"} px-3.5 py-2.5 text-sm outline-none  transition-all`}
                     />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {errors.email.message}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
@@ -833,13 +844,15 @@ export default function Portfolio() {
                   </label>
                   <textarea
                     name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
+                    {...register("message")}
                     placeholder="Drop your message here..."
-                    className="w-full rounded-lg border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all resize-none"
+                    className={`w-full rounded-lg border ${errors.message ? "border-red-500 focus:ring-red-200" : "border-slate-200  focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"} px-3.5 py-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all resize-y`}
                   />
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
                 <button
