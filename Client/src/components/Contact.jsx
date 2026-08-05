@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema } from "../validation/ContactSchema";
+import { contactSchema } from "../validation/contactSchema";
 
 import {
   Phone,
