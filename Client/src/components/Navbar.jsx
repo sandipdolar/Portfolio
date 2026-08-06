@@ -3,6 +3,7 @@ import { NAV_LINKS } from "../data/navigation";
 import {
   Menu,
   Download,
+  X,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -45,7 +46,7 @@ const Navbar = () => {
           </button>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1  text-[14px]">
+          <div className="hidden md:flex items-center gap-1  text-[12px]">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.id}
@@ -70,7 +71,7 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-slate-700"
+            className="md:hidden cursor-pointer text-slate-700"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -85,7 +86,7 @@ const Navbar = () => {
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className={`text-left px-3 py-2 rounded-md ${
+                className={`cursor-pointer text-left px-3 py-2 rounded-md ${
                   activeSection === link.id
                     ? "text-emerald-700 bg-emerald-50"
                     : "text-slate-600"

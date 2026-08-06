@@ -11,6 +11,7 @@ import { Phone, MapPin, Send, Sparkles, CheckCircle2 } from "lucide-react";
 import { FaEnvelope } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const [status, setStatus] = useState("idle"); // idle | sending | sent
@@ -118,6 +119,15 @@ const Contact = () => {
                   >
                     {/* <Linkedin size={18} /> */}
                     <BsLinkedin size={19} color="white" />
+                  </a>
+                  <a
+                    href="https://wa.me/917567628465"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 hover:text-green-400 transition-colors"
+                    aria-label="WhatsApp"
+                  >
+                    <FaWhatsapp size={20} color="white" />
                   </a>
                 </div>
               </div>
