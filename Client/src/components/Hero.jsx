@@ -171,22 +171,7 @@ const Hero = () => {
                   <span className="text-amber-200">"Open to work"</span>
                   <span className="text-slate-400">,</span>
                   {"\n"}
-                  <span className="text-slate-400">{" }"}</span>
-                  {"\n"}
-                  {"\n"}
-                  <span className="text-purple-400">if</span>{" "}
-                  <span className="text-slate-400">{"("}</span>{" "}
-                  <span className="text-sky-300">{"name"}</span>{" "}
-                  <span className="text-slate-400">{"=="}</span>{" "}
-                  <span className="text-amber-200">"Sandip Dolar"</span>{" "}
-                  <span className="text-slate-400">{")"}</span>{" "}
-                  <span className="text-slate-400">{"{"}</span>
-                  {"\n  "}
-                  <span className="text-sky-300">{"error"}</span>{" "}
-                  <span className="text-slate-400">{"="}</span>{" "}
-                  <span className="text-sky-500">{"false"}</span>
-                  <span className="text-slate-400">{";"}</span> {"\n"}
-                  <span className="text-slate-400">{"}"}</span>
+                  <span className="text-slate-400">{" }"}</span>     
                   <span className="cursor-blink text-slate-400">▍</span>
                 </code>
               </pre>
