@@ -23,6 +23,14 @@ app.get("/", (req, res) => {
   res.send("Portfolio Backend is Running 🚀");
 });
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "portfolio backend is running."
+  })
+});
+
+
 // Port
 const PORT = process.env.PORT || 5000;
 
