@@ -37,6 +37,18 @@ export const PROJECTS = [
     image: Portfolio,
   },
   {
+    title: "Crunchyroll Clone — Anime Streaming Platform",
+    description:
+      "A responsive Crunchyroll-inspired anime streaming website built with React and Tailwind CSS. The project features a modern hero section, premium subscription plans, anime collection with responsive cards, membership sections, genre and popular-series navigation, language options, and a fully responsive layout for desktop and mobile devices.",
+    tags: ["React", "Tailwind CSS", "Vite", "Responsive Design"],
+    icon: Tv,
+    links: {
+      demo: "https://crunchyroll-clone-sandip.vercel.app/",
+      code: "Crunchyroll_clone",
+    },
+    image: CRUNCHYROLL_CLONE,
+  },
+  {
     title: "IT Exhibition — Technology Showcase Website",
     description:
       "My first college project website, developed for an IT Exhibition to showcase innovative student projects, exhibition details, schedules, registration, and feedback. This project gave me my first hands-on experience in building a complete website.",
@@ -48,17 +60,4 @@ export const PROJECTS = [
     },
     image: IT_EXHIBITION,
   },
-
-  {
-  title: "Crunchyroll Clone — Anime Streaming Platform",
-  description:
-    "A responsive Crunchyroll-inspired anime streaming website built with React and Tailwind CSS. The project features a modern hero section, premium subscription plans, anime collection with responsive cards, membership sections, genre and popular-series navigation, language options, and a fully responsive layout for desktop and mobile devices.",
-  tags: ["React", "Tailwind CSS", "Vite", "Responsive Design"],
-  icon: Tv,
-  links: {
-    demo: "https://crunchyroll-clone-sandip.vercel.app/",
-    code: "Crunchyroll_clone",
-  },
-  image: CRUNCHYROLL_CLONE,
-},
 ];
