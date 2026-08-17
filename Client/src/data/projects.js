@@ -30,7 +30,10 @@ export const PROJECTS = [
       "The site you're looking at right now. A responsive, component-based portfolio built with React and Tailwind CSS, focused on clean structure and subtle motion.",
     tags: ["React", "Tailwind CSS", "JavaScript"],
     icon: Globe,
-    links: { demo: "sanadipdolar.vercel.app", code: "#" },
+    links: {
+      demo: "https://sandipdolar.vercel.app/", 
+      code: "Portfolio" 
+    },
     image: Portfolio,
   },
   {
