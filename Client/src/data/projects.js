@@ -1,6 +1,7 @@
-import { ShoppingCart, LayoutDashboard, Globe} from "lucide-react";
+import { ShoppingCart, LayoutDashboard, Globe, Tv} from "lucide-react";
 import IT_EXHIBITION from "/IT_EXHIBITION.png"; 
 import Portfolio from "/Portfolio.png"; 
+import CRUNCHYROLL_CLONE from "/crunchyroll-clone.png"; 
 
 export const PROJECTS = [
   {
@@ -44,4 +45,17 @@ export const PROJECTS = [
     },
     image: IT_EXHIBITION,
   },
+
+  {
+  title: "Crunchyroll Clone — Anime Streaming Platform",
+  description:
+    "A responsive Crunchyroll-inspired anime streaming website built with React and Tailwind CSS. The project features a modern hero section, premium subscription plans, anime collection with responsive cards, membership sections, genre and popular-series navigation, language options, and a fully responsive layout for desktop and mobile devices.",
+  tags: ["React", "Tailwind CSS", "Vite", "Responsive Design"],
+  icon: Tv,
+  links: {
+    demo: "https://crunchyroll-clone-sandip.vercel.app/",
+    code: "Crunchyroll_clone",
+  },
+  image: CRUNCHYROLL_CLONE,
+},
 ];
