@@ -29,21 +29,17 @@ const Projects = () => {
                 const Icon = project.icon;
                 return (
                   <Reveal key={project.title} delay={i * 100}>
-                    <div className="group h-full flex flex-col rounded-xl border border-slate-200 bg-white overflow-hidden hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/70 hover:-translate-y-1 transition-all duration-300">
+                    <div className="group h-full flex flex-col rounded-md border border-slate-200 bg-white overflow-hidden hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/70 hover:-translate-y-1 transition-all duration-300">
                       {/* Image placeholder — swap for a real screenshot via project.image */}
                       <div className="relative h-40 bg-slate-900 flex items-center justify-center overflow-hidden">
                         <div
                           className="absolute inset-0 opacity-20"
-                          style={{
-                            backgroundImage:
-                              "repeating-linear-gradient(45deg, #ffffff 0, #ffffff 1px, transparent 1px, transparent 12px)",
-                          }}
                         />
                         {project.image ? (
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="h-full w-full object-cover"
+                            className="h-full w-full"
                           />
                         ) : (
                           <Icon
@@ -76,6 +72,7 @@ const Projects = () => {
                         <div className="mt-5 flex items-center gap-4 pt-4 border-t border-slate-100 text-sm">
                           <a
                             href={project.links.demo}
+                            target="_blank"
                             className="inline-flex items-center gap-1.5 font-medium text-slate-900 hover:text-emerald-600 transition-colors"
                           >
                             Live Demo <ExternalLink size={20} />

@@ -1,4 +1,6 @@
 import { ShoppingCart, LayoutDashboard, Globe} from "lucide-react";
+import IT_EXHIBITION from "/IT_EXHIBITION.png"; 
+import Portfolio from "/Portfolio.png"; 
 
 export const PROJECTS = [
   {
@@ -27,7 +29,19 @@ export const PROJECTS = [
       "The site you're looking at right now. A responsive, component-based portfolio built with React and Tailwind CSS, focused on clean structure and subtle motion.",
     tags: ["React", "Tailwind CSS", "JavaScript"],
     icon: Globe,
-    links: { demo: "#", code: "#" },
-    image: null,
+    links: { demo: "sanadipdolar.vercel.app", code: "#" },
+    image: Portfolio,
+  },
+  {
+    title: "IT Exhibition — Technology Showcase Website",
+    description:
+      "My first college project website, developed for an IT Exhibition to showcase innovative student projects, exhibition details, schedules, registration, and feedback. This project gave me my first hands-on experience in building a complete website.",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    icon: Globe,
+    links: {
+      demo: "https://sandipdolar.github.io/IT_EXHIBITION/index.html",
+      code: "IT_EXHIBITION",
+    },
+    image: IT_EXHIBITION,
   },
 ];
